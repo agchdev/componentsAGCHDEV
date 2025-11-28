@@ -1,0 +1,88 @@
+.agch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  color: #0b1221;
+  background: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.agch-btn--full {
+  width: 100%;
+}
+
+.agch-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+}
+
+.agch-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.agch-btn--primary {
+  background: linear-gradient(120deg, #2563eb, #22d3ee);
+  color: #f8fafc;
+  border-color: transparent;
+}
+
+.agch-btn--primary:hover {
+  filter: brightness(1.05);
+}
+
+.agch-btn--outline {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: #334155;
+  color: #0f172a;
+}
+
+.agch-btn--outline:hover {
+  background: #e2e8f0;
+  border-color: #0ea5e9;
+}
+
+.agch-btn--ghost {
+  background: transparent;
+  color: #0f172a;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.agch-btn--ghost:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.agch-btn--gradient {
+  background: radial-gradient(circle at 20% 20%, #a855f7, transparent 25%),
+    radial-gradient(circle at 80% 0%, #22d3ee, transparent 25%),
+    linear-gradient(140deg, #0ea5e9, #6366f1);
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.agch-btn--gradient:hover {
+  filter: brightness(1.08);
+}
+
+.agch-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.agch-btn__label {
+  line-height: 1.2;
+}
