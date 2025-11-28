@@ -1,7 +1,11 @@
 # agchdev
 
+<<<<<<< HEAD
 Librería de componentes React creada con Vite (modo biblioteca) que expone componentes modernos y responsivos: `NavModern`,
 `ButtonModern`, `HeaderModern` y `FooterModern`.
+=======
+Librería de componentes React creada con Vite (modo biblioteca) que expone el componente `NavModern`.
+>>>>>>> main
 
 ## Instalación de dependencias de desarrollo
 
@@ -20,6 +24,7 @@ npm install
 
 - `npm run build`: genera la salida de biblioteca en `dist/` en formatos ESM y CommonJS.
 
+<<<<<<< HEAD
 ## Estructura de carpetas
 
 ```
@@ -43,6 +48,8 @@ vite.config.js
 
 Cada componente mantiene sus estilos en el mismo directorio para facilitar el mantenimiento y evitar colisiones de clases gracias al prefijo `agch-`.
 
+=======
+>>>>>>> main
 ## Uso
 
 Instala el paquete publicado:
@@ -51,9 +58,13 @@ Instala el paquete publicado:
 npm i agchdev
 ```
 
+<<<<<<< HEAD
 Importa y utiliza cualquier componente:
 
 ### NavModern
+=======
+Ejemplo de uso dentro de cualquier proyecto React 18:
+>>>>>>> main
 
 ```jsx
 import { NavModern } from 'agchdev'
@@ -64,6 +75,7 @@ const rutas = [
   { path: '/contacto', label: 'Contacto' }
 ]
 
+<<<<<<< HEAD
 export default function App() {
   return <NavModern rutas={rutas} activePath="/blog" />
 }
@@ -153,3 +165,15 @@ export default function App() {
    ```
 
 Con este flujo puedes probar y ver tus componentes en un entorno real sin necesidad de publicarlos todavía en npm.
+=======
+function App() {
+  return <NavModern rutas={rutas} activePath="/" />
+}
+```
+
+Para navegación SPA puedes pasar `onNavigate`:
+
+```jsx
+<NavModern rutas={rutas} activePath={location.pathname} onNavigate={(ruta) => navigate(ruta.path)} />
+```
+>>>>>>> main
