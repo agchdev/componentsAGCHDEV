@@ -1,10 +1,7 @@
 # agchdev
 
-<<<<<<< HEAD
-Librería de componentes React creada con Vite (modo biblioteca) que expone componentes modernos y responsivos como `NavModern`, `ButtonModern`, `HeaderModern` y `FooterModern`.
-=======
-Librería de componentes React creada con Vite (modo biblioteca) que expone el componente `NavModern`.
->>>>>>> main
+Librería de componentes React creada con Vite (modo biblioteca) que expone componentes modernos y responsivos: `NavModern`,
+`ButtonModern`, `HeaderModern` y `FooterModern`.
 
 ## Instalación de dependencias de desarrollo
 
@@ -23,6 +20,29 @@ npm install
 
 - `npm run build`: genera la salida de biblioteca en `dist/` en formatos ESM y CommonJS.
 
+## Estructura de carpetas
+
+```
+src/
+  components/
+    NavModern/
+      NavModern.jsx
+      navModern.css
+    ButtonModern/
+      ButtonModern.jsx
+      buttonModern.css
+    HeaderModern/
+      HeaderModern.jsx
+      headerModern.css
+    FooterModern/
+      FooterModern.jsx
+      footerModern.css
+  index.jsx
+vite.config.js
+```
+
+Cada componente mantiene sus estilos en el mismo directorio para facilitar el mantenimiento y evitar colisiones de clases gracias al prefijo `agch-`.
+
 ## Uso
 
 Instala el paquete publicado:
@@ -31,11 +51,9 @@ Instala el paquete publicado:
 npm i agchdev
 ```
 
-<<<<<<< HEAD
+Importa y utiliza cualquier componente:
+
 ### NavModern
-=======
-Ejemplo de uso dentro de cualquier proyecto React 18:
->>>>>>> main
 
 ```jsx
 import { NavModern } from 'agchdev'
@@ -46,78 +64,92 @@ const rutas = [
   { path: '/contacto', label: 'Contacto' }
 ]
 
-function App() {
-  return <NavModern rutas={rutas} activePath="/" />
+export default function App() {
+  return <NavModern rutas={rutas} activePath="/blog" />
 }
 ```
 
-Para navegación SPA puedes pasar `onNavigate`:
-
-```jsx
-<NavModern rutas={rutas} activePath={location.pathname} onNavigate={(ruta) => navigate(ruta.path)} />
-```
-<<<<<<< HEAD
-
-### ButtonModern (varios estilos)
+### ButtonModern
 
 ```jsx
 import { ButtonModern } from 'agchdev'
 
-<ButtonModern variant="primary">Primario</ButtonModern>
-<ButtonModern variant="outline">Borde</ButtonModern>
-<ButtonModern variant="ghost">Ghost</ButtonModern>
-<ButtonModern variant="gradient" icon={<span>★</span>}>
-  Destacado
-</ButtonModern>
+export default function App() {
+  return (
+    <div className="button-grid">
+      <ButtonModern label="Primario" variant="solid" />
+      <ButtonModern label="Secundario" variant="outline" />
+      <ButtonModern label="Fantasma" variant="ghost" />
+      <ButtonModern label="Con icono" variant="solid" icon={<span>★</span>} />
+    </div>
+  )
+}
 ```
 
-### HeaderModern (responsive con toggle)
+### HeaderModern y FooterModern
 
 ```jsx
-import { HeaderModern } from 'agchdev'
+import { HeaderModern, FooterModern } from 'agchdev'
 
-const links = [
-  { path: '#', label: 'Inicio' },
-  { path: '#servicios', label: 'Servicios' },
-  { path: '#contacto', label: 'Contacto' }
+const navItems = [
+  { path: '/', label: 'Inicio' },
+  { path: '/servicios', label: 'Servicios' },
+  { path: '/contacto', label: 'Contacto' }
 ]
 
-const actions = [
-  { label: 'Login', variant: 'ghost', href: '#' },
-  { label: 'Crear cuenta', variant: 'primary', href: '#' }
-]
+const footerLinks = {
+  recursos: [
+    { label: 'Blog', href: '/blog' },
+    { label: 'Guías', href: '/guias' }
+  ],
+  legal: [
+    { label: 'Privacidad', href: '/privacidad' },
+    { label: 'Términos', href: '/terminos' }
+  ]
+}
 
-<HeaderModern brand="AgchDev" links={links} actions={actions} variant="glass" />
+export default function App() {
+  return (
+    <>
+      <HeaderModern
+        brand={{ label: 'agchdev', href: '/' }}
+        navItems={navItems}
+        actions={[{ label: 'Empezar', href: '/signup' }]}
+      />
+
+      <main style={{ padding: '2rem' }}>
+        <p>Contenido de tu aplicación.</p>
+      </main>
+
+      <FooterModern columns={footerLinks} brand={{ label: 'agchdev' }} />
+    </>
+  )
+}
 ```
 
-### FooterModern (múltiples columnas)
+## Cómo ver tus componentes localmente
 
-```jsx
-import { FooterModern } from 'agchdev'
+1. Instala dependencias y construye la librería:
+   ```bash
+   npm install
+   npm run build
+   ```
+2. Empaqueta la librería para consumirla en otro proyecto:
+   ```bash
+   npm pack
+   # Generará un archivo como agchdev-0.0.1.tgz
+   ```
+3. Crea o usa un proyecto React (por ejemplo con Vite) y agrega el paquete generado:
+   ```bash
+   npm create vite@latest demo -- --template react
+   cd demo
+   npm install ../ruta/a/agchdev/agchdev-0.0.1.tgz
+   npm install react react-dom
+   npm run dev
+   ```
+4. Importa los componentes en ese proyecto (ejemplo en `src/App.jsx`):
+   ```jsx
+   import { NavModern, ButtonModern, HeaderModern, FooterModern } from 'agchdev'
+   ```
 
-const columns = [
-  {
-    title: 'Producto',
-    links: [
-      { label: 'Funciones', href: '#' },
-      { label: 'Precios', href: '#' }
-    ]
-  },
-  {
-    title: 'Empresa',
-    links: [
-      { label: 'Nosotros', href: '#' },
-      { label: 'Blog', href: '#' }
-    ]
-  }
-]
-
-const social = [
-  { label: 'Twitter', href: '#', icon: '𝕏' },
-  { label: 'LinkedIn', href: '#', icon: 'in' }
-]
-
-<FooterModern brand="AgchDev" columns={columns} social={social} />
-```
-=======
->>>>>>> main
+Con este flujo puedes probar y ver tus componentes en un entorno real sin necesidad de publicarlos todavía en npm.
